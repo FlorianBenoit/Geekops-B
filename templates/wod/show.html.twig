@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Wod
+{% endblock %}
+
+{% block body %}
+	<div class="container mt-4">
+		<h1>Wod</h1>
+
+		<table class="table">
+			<tbody>
+				<tr>
+					<th>Id</th>
+					<td>{{ wod.id }}</td>
+				</tr>
+				<tr>
+					<th>Name</th>
+					<td>{{ wod.name }}</td>
+				</tr>
+				<tr>
+					<th>Image</th>
+					<td>{{ wod.image }}</td>
+				</tr>
+				<tr>
+					<th>Created_at</th>
+					<td>{{ wod.createdAt ? wod.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+				</tr>
+				<tr>
+					<th>Description</th>
+					<td>{{ wod.description }}</td>
+				</tr>
+				<tr>
+					<th>Type</th>
+					<td>{{ wod.type.name }}</td>
+				</tr>
+				<tr>
+					<th>Category</th>
+					<td>{{ wod.category.name }}</td>
+				</tr>
+				<tr></tr>
+				<tr>
+					<th>Exercises</th>
+					<td>
+						{% for exercice in wod.exercices %}
+							{{ exercice.activity.name }}
+							-
+							{{ exercice.quantity.number }}
+							{{ exercice.unity.name }}<br>
+						{% endfor %}
+					</td>
+				</tr>
+
+			</tbody>
+		</table>
+
+		<div class="container mt-4">
+			<a href="{{ path('app_wod_index') }}" class="btn btn-secondary">Back to List</a>
+			<a href="{{ path('app_wod_edit', {'id': wod.id}) }}" class="btn btn-success">Edit</a>
+			{{ include('wod/_delete_form.html.twig', {'button_label ': 'Delete'}) }}
+		</div>
+	</div>
+{% endblock %}

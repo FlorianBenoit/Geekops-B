@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit User{% endblock %}
+
+{% block body %}
+    <div class="container mt-4">
+		<h1>Edit user</h1>
+		{{ form_start(form, {'attr': {'class': 'mb-4'}}) }}
+        <div class="mb-3">
+			{{ form_row(form.username, {'attr': {'class': 'form-control'}}) }}
+		</div>
+           <div class="mb-3">
+			{{ form_row(form.roles, {'attr': {'class': 'form-control'}}) }}
+	
+           <div class="mb-3">
+			{{ form_row(form.mail, {'attr': {'class': 'form-control'}}) }}
+		</div>
+           <div class="mb-3">
+			{{ form_row(form.avatar, {'attr': {'class': 'form-control'}}) }}
+		</div>
+
+        {{ include('user/_form.html.twig', {'button_label': 'Update'}) }}
+
+        <a href="{{ path('app_user_index') }}" class="btn btn-secondary">Back to list</a>
+
+        {{ include('user/_delete_form.html.twig') }}
+    </div>
+{% endblock %}

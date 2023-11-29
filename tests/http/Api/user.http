@@ -1,0 +1,31 @@
+### Vu sur un user {id}
+GET http://localhost:8000/api/users/4
+
+### Creation d'un user:
+POST http://localhost:8000/api/users/
+Content-Type: application/json
+
+{
+    "username": "tf",
+    "mail": "grgzt@gmailcom", 
+    "password": "jeme"
+}
+
+### Modification d'un user:
+PATCH  http://localhost:8000/api/users/31
+Content-Type: application/json
+
+{
+    "username": "JOJOLEMANACH",
+    "mail": "jojolemanach@gmail.com", 
+    "password": "jojolebestdu70"
+}
+
+### connexion user
+POST http://localhost:8000/api/login
+Content-Type: application/json
+
+{
+    "username": "jerome",
+    "password": "jerome"
+}

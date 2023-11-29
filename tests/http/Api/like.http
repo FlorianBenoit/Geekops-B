@@ -1,0 +1,13 @@
+### Liste des favoris
+POST http://localhost:8000/api/likes/
+Content-Type: application/json
+
+{
+     "wod": 53,
+     "user": 31
+   
+}
+
+
+### Supprimer un wod
+DELETE http://localhost:8000/api/likes/38/45

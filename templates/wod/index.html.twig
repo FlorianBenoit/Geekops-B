@@ -1,0 +1,123 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Wod index
+{% endblock %}
+
+{% block body %}
+	<div class="container-fluid mt-4">
+		<div class="card w-100 mb-4">
+			<div class="card-body">
+				<div class="row">
+					<div class="col-md-12">
+						<h2 class="pt-3 pb-4 text-center font-bold font-up deep-purple-text">wods</h2>
+						<div
+							class="input-group md-form form-sm form-2 pl-0"><!-- Your input group content goes here if needed -->
+						</div>
+					</div>
+				</div>
+
+				<table class="table table-striped w-100">
+					<thead>
+						<tr>
+							<th>Id</th>
+							<th>Name</th>
+							<th>Image</th>
+							<th>Created_at</th>
+							<th>Description</th>
+							<th>Type</th>
+							<th>Category</th>
+							<th>Status</th>
+							<th>Exercises</th>
+							<th>Actions</th>
+
+						</tr>
+					</thead>
+					<tbody>
+						{% for wod in wods %}
+							<tr>
+								<th scope="row">{{ wod.id }}</th>
+								<td>{{ wod.name }}</td>
+								<td><img src="{{wod.image}}" alt="" style="width: 80px; height: 80px" class="rounded-circle"/></td>
+								<td>{{ wod.createdAt ? wod.createdAt|date('Y-m-d') : '' }}</td>
+								<td>{{ wod.description }}</td>
+								<td>{{ wod.type.name }}</td>
+								<td>{{ wod.category.name }}</td>
+								<td id="status-cell-{{ wod.id }}">
+									{% if wod.status %}
+										<span class="badge rounded-pill bg-success">Vérifié</span>
+									{% else %}
+										<span class="badge rounded-pill bg-danger">En attente</span>
+									{% endif %}
+									<br>
+									<br>
+									<input class="toggle_button" type="checkbox" onclick="activateStatus({{ wod.id }})" id="switch{{ wod.id }}" {% if wod.status %}checked{% endif %} />
+									<label class="toggle_label" for="switch{{ wod.id }}">Toggle</label>
+
+								</td>
+								<td>
+									{% for exercice in wod.exercices %}
+										{{ exercice.activity.name }}
+										-
+										{{ exercice.quantity.number }}
+										{{ exercice.unity.name }}<br>
+									{% endfor %}
+								</td>
+								<td>
+									<a href="{{ path('app_wod_show', {'id': wod.id}) }}" class="btn btn-primary">Show</a>
+									<a href="{{ path('app_wod_edit', {'id': wod.id}) }}" class="btn btn-danger">Edit</a>
+								</td>
+							</tr>
+						{% else %}
+							<tr>
+								<td colspan="8">No records found</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+
+			</div>
+		</div>
+		<a href="{{ path('app_wod_new') }}" class="btn btn-success">Create new</a>
+	</div>
+	  <script>
+         function activateStatus(wodId) {
+            // Envoi d'une requête AJAX pour mettre à jour le statut en base de données
+            fetch("{{ path('toggle_wod_status', {'id': 'wodId'}) }}".replace('wodId', wodId), {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ wodId: wodId }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Trouver la cellule du statut pour ce Wod
+                    var statusCell = document.getElementById('status-cell-' + wodId);
+					console.log(statusCell.firstChild);
+					if (statusCell.firstChild.nextElementSibling.innerText === "Vérifié") {
+					// Utiliser classList sur l'élément statusCell
+					statusCell.firstChild.nextElementSibling.classList.remove("bg-success");
+					statusCell.firstChild.nextElementSibling.classList.add("bg-danger");
+					statusCell.firstChild.nextElementSibling.innerText = "En attente"
+					
+				} else if (statusCell.firstChild.nextElementSibling.innerText === "En attente"){
+					statusCell.firstChild.nextElementSibling.classList.remove("bg-danger");
+					statusCell.firstChild.nextElementSibling.classList.add("bg-success");
+					statusCell.firstChild.nextElementSibling.innerText = "Vérifié"
+					console.log("en attente");
+				}
+
+
+                } else {
+                    alert('Failed to activate status in the index page.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred while activating status in the index page.');
+            });
+        }
+
+    </script>
+{% endblock %}

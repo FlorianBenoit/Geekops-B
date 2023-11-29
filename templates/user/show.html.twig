@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User{% endblock %}
+
+{% block body %}
+    <div class="container mt-4">
+        <h1>show Users</h1>
+        <div class="card mb-4">
+            <div class="card-body">
+                <table class="table align-middle mb-0 bg-white">
+                    <tbody>
+                        <tr>
+                            <th>Id</th>
+                            <td>{{ user.id }}</td>
+                        </tr>
+                        <tr>
+                            <th>Username</th>
+                            <td>{{ user.username }}</td>
+                        </tr>
+                        <tr>
+                            <th>Roles</th>
+                            <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+                        </tr>
+                        <tr>
+                            <th>Mail</th>
+                            <td>{{ user.mail }}</td>
+                        </tr>
+                        <tr>
+                            <th>Avatar</th>
+                            <td><img src="{{ user.avatar }}" alt="User Avatar" style="width: 90px; height: 90px" class="rounded-circle"/></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <a href="{{ path('app_user_index') }}" class="btn btn-secondary">Back to List</a>
+            <a href="{{ path('app_user_edit', {'id': user.id}) }}" class="btn btn-success">Edit</a>
+        </div>
+
+        {{ include('user/_delete_form.html.twig') }}
+    </div>
+{% endblock %}

@@ -1,0 +1,9 @@
+### Envoyer les sauvegardes en BDD
+POST http://localhost:8000/api/saves/
+Content-Type: application/json
+
+{
+    "wod": "3",
+    "user": "4",
+    "note": "Super bien passe"
+}

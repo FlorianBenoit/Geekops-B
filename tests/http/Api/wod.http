@@ -1,0 +1,35 @@
+### Liste des wods
+GET http://localhost:8000/api/wods
+
+### Détail d'un wod
+GET http://localhost:8000/api/wods/31
+
+### Ajout d'un wod
+POST http://localhost:8000/api/wods/
+Content-Type: application/json
+
+{
+    "name": "dedde;dfejfgdd",
+    "description": "Description du Wod",
+    "type": 1,
+    "exercices": [
+      {
+        
+        "activity": 3,
+         "quantity": 3,
+          "unity": 1
+      }
+    ],
+     
+    "author": 1,
+    "category": 2,
+    "repetition": 2
+}
+
+
+### Supprimer un wod
+DELETE http://localhost:8000/api/wods/1
+
+### Random Wod 
+
+GET http://localhost:8000/api/wods

@@ -1,0 +1,9 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+api_login:
+    path: /api/login
+app_wod_show:
+    path: '/wod/{id}'
+    controller: 'App\Controller\WodController::show'
+    

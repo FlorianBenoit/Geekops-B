@@ -1,0 +1,6 @@
+{
+    "intelephense.diagnostics.undefinedMethods": false,
+    "editor.tokenColorCustomizations": {
+        // "comments": "#777777"
+    }
+}

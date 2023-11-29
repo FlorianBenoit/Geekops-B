@@ -1,0 +1,255 @@
+.btn {
+  color: #131010; /* Couleur du texte */
+  background: radial-gradient(circle, rgba(0, 123, 255, 0.1) 0.25em, transparent 0.25em) center/1em 1.2em; /* Couleur de fond avec dégradé */
+  font-family: 'Nunito', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+  border-radius: 20px/50px;
+  border: 2px solid #007bff; /* Couleur de la bordure */
+  transition: all 0.5s ease 0s;
+}
+
+.btn-danger {
+  background: radial-gradient(circle, rgba(255, 0, 0, 0.1) 0.25em, transparent 0.25em) center/1em 1.2em; /* Nouvelle couleur de fond avec dégradé pour le bouton "delete" */
+  border: 2px solid #dc3545; /* Couleur de la bordure pour le bouton "delete" */
+}
+
+.btn-success {
+  background: radial-gradient(circle, rgba(255, 0, 0, 0.1) 0.25em, transparent 0.25em) center/1em 1.2em; /* Nouvelle couleur de fond avec dégradé pour le bouton "delete" */
+  border: 2px solid #157735; /* Couleur de la bordure pour le bouton "delete" */
+}
+
+.btn:hover,
+.btn:focus {
+  color: #fff; /* Couleur du texte au survol */
+  background: radial-gradient(circle, #007bff 0.25em, transparent 0.25em) center/0.1em 0.1em; /* Nouvelle couleur de fond au survol */
+  box-shadow: 4px 4px rgba(0, 123, 255, 0.2); /* Effet de l'ombre au survol */
+}
+
+.btn-danger:hover,
+.btn-danger:focus {
+  background: radial-gradient(circle, #dc3545 0.25em, transparent 0.25em) center/0.1em 0.1em; /* Nouvelle couleur de fond au survol pour le bouton "delete" */
+  box-shadow: 4px 4px rgba(220, 53, 69, 0.2); /* Effet de l'ombre au survol pour le bouton "delete" */
+}
+
+.btn-success:hover,
+.btn-success:focus {
+  background: radial-gradient(circle, #157735 0.25em, transparent 0.25em) center/0.1em 0.1em; /* Nouvelle couleur de fond au survol pour le bouton "delete" */
+  box-shadow: 4px 4px rgba(220, 53, 69, 0.2); /* Effet de l'ombre au survol pour le bouton "delete" */
+}
+
+@media only screen and (max-width: 767px) {
+  .btn {
+    margin-bottom: 20px;
+  }
+}
+
+h1{
+  text-align:center;
+  margin-bottom:50px;
+  margin-top:50px;
+}
+.blog-card-blog {
+    margin-top: 30px;
+}
+.blog-card {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    margin-bottom: 30px;
+    border-radius: 6px;
+    color: rgba(0, 0, 0, 0.87);
+    background: #fff;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+.blog-card .blog-card-image {
+    height: 60%;
+    position: relative;
+    overflow: hidden;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: -30px;
+    border-radius: 6px;
+    box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+}
+.blog-card .blog-card-image img {
+    width: 100%;
+    height: 100%;
+    border-radius: 6px;
+    pointer-events: none;
+}
+.blog-card .blog-table {
+    padding: 15px 30px;
+}
+.blog-table {
+    margin-bottom: 0px;
+}
+.blog-category {
+    position: relative;
+    line-height: 0;
+    margin: 15px 0;
+}
+.blog-text-success {
+    color: #28a745!important;
+}
+.blog-card-blog .blog-card-caption {
+    margin-top: 5px;
+}
+.blog-card-caption {
+    font-weight: 700;
+    font-family: "Roboto Slab", "Times New Roman", serif;
+}
+.fa {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.blog-card-caption, .blog-card-caption a {
+    color: #333;
+    text-decoration: none;
+}
+
+p {
+    color: #3C4857;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+.blog-card .ftr {
+    margin-top: 15px;
+}
+.blog-card .ftr .author {
+    color: #888;
+}
+
+.blog-card .ftr div {
+    display: inline-block;
+}
+.blog-card .author .avatar {
+    width: 36px;
+    height: 36px;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+.blog-card .ftr .stats {
+    position: relative;
+    top: 1px;
+    font-size: 14px;
+}
+.blog-card .ftr .stats {
+    float: right;
+    line-height: 30px;
+}
+
+/* .roundedOne */
+.roundedOne {
+    width: 28px;
+    height: 28px;
+    position: relative;
+    margin: 20px auto;
+    padding-left: 30px;
+    background: #fcfff4;
+    background: linear-gradient(to bottom, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+    border-radius: 50px;
+    box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0, 0, 0, 0.5);
+  }
+  .roundedOne label {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    left: 4px;
+    top: 4px;
+    background: linear-gradient(to bottom, #222222 0%, #45484d 100%);
+    border-radius: 50px;
+    box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px white;
+
+  }
+  
+  .roundedOne label:after {
+    content: "";
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    background: #27ae60;
+    background: linear-gradient(to bottom, #27ae60 0%, #145b32 100%);
+    opacity: 0;
+    border-radius: 50px;
+    box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0, 0, 0, 0.5);
+  }
+  .roundedOne label:hover::after {
+    opacity: 0.3;
+  }
+  .roundedOne input[type="checkbox"] {
+    visibility: hidden;
+  }
+  .roundedOne input[type="checkbox"]:checked + label:after {
+    opacity: 1;
+  }
+/* Ajustez la marge gauche pour décaler le texte */
+.roundedOne label .validate-text {
+    display: inline-block;
+    margin-left: -80px; /* Ajustez la marge selon vos besoins */
+    font-weight: bold;
+    color: #333;
+}
+
+.toggle_button {
+  position: absolute;
+  opacity: 0;
+}
+
+.toggle_label {
+  cursor: pointer;
+  text-indent: -9999px;
+  width: 53.34px; /* Réduit de 20% (66.67px - 20%) */
+  height: 26.66px; /* Réduit de 20% (33.33px - 20%) */
+  background: red;
+  display: block;
+  border-radius: 26.66px; /* Réduit de 20% (33.33px - 20%) */
+  position: relative;
+}
+
+.toggle_label:after {
+  content: '';
+  position: absolute;
+  top: 1.33px; /* Réduit de 20% (1.67px - 20%) */
+  left: 1.33px; /* Réduit de 20% (1.67px - 20%) */
+  width: 24px; /* Réduit de 20% (30px - 20%) */
+  height: 24px; /* Réduit de 20% (30px - 20%) */
+  background: #fff;
+  border-radius: 24px; /* Réduit de 20% (30px - 20%) */
+  transition: 0.3s;
+}
+
+.toggle_button:checked + .toggle_label {
+  background: #bada55;
+}
+
+.toggle_button:checked + .toggle_label:after {
+  left: calc(100% - 1.33px); /* Réduit de 20% (1.67px - 20%) */
+  transform: translateX(-100%);
+}
+
+.toggle_label:active:after {
+  width: 34.66px; /* Réduit de 20% (43.33px - 20%) */
+}
+
+.toggle_button[type=checkbox] {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+

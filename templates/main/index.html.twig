@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}hello ! Geekops Back
+{% endblock %}
+
+{% block body %}
+	<h1>backoffice Geekops</h1>
+	<div class="container">
+		<div class="row">
+			{% for wod in wods %}
+				<div class="col-md-4">
+					<div class="blog-card blog-card-blog ">
+						<div class="blog-card-image">
+							<a href="#">
+								<img class="img" src="{{ wod.image }}">
+							</a>
+							<div class="ripple-cont"></div>
+						</div>
+						<div class="blog-table">
+							<h6 class="blog-category blog-text-success">
+								{{ wod.author.username }}</h6>
+							<h4 class="blog-card-caption">
+								<a href="{{ path('app_wod_show', {'id': wod.id}) }}">{{ wod.name }}</a>
+							</h4>
+							<p class="blog-card-description">{{ wod.description }}</p>
+							<p class="card-text">
+              	<p class="card-text">Type :
+								{{ wod.type.name }}</p>
+							<p class="card-text">Category :
+								{{ wod.category.name }}</p>
+								<strong>
+									<u>Exercices :</u>
+								</strong>
+							</p>
+
+							<!-- Affichage des détails des exercices -->
+							{% for exercice in wod.exercices %}
+								<p class="card-text">
+									{{ exercice.activity.name }}
+									-
+									{{ exercice.quantity.number }}
+									{{ exercice.unity.name }}<br>
+								</p>
+							{% endfor %}
+
+						
+
+							<!-- Boutons d'édition et de suppression -->
+							<div class="ftr d-flex justify-content-between">
+								<div class="author">
+									<div class="container">
+										<div class="row">
+											<div
+												class="col-sm-3">
+												<!-- Bouton pour éditer le Wod -->
+												<a class="btn btn-lg" href="{{ path('app_wod_edit', {'id': wod.id}) }}">
+													<span>Edit</span>
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div
+									class="col-sm-3">
+									<!-- Formulaire de suppression du Wod -->
+									{{ include('wod/_delete_form.html.twig', {'button_label ': 'delete'}) }}
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+{% endblock %}
