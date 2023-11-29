@@ -138,7 +138,7 @@ class AppFixtures extends Fixture
 
 
 
-        $imgPath = 'http://vivosjerome-server.eddi.cloud/src/DataFixtures/images/';
+        $imgPath = 'http://localhost/Projet/Geekops/Back/Geekops-B/src/DataFixtures/images/';
 
         $index = 1;
 
